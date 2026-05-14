@@ -1,0 +1,48 @@
+# DevMobile — Build APK GRÁTIS via GitHub Actions + Capacitor
+  App: DevMobile IDE v2.8.0
+  Package: com.devmobile.ide
+  Método: Capacitor + Gradle no GitHub Actions (SEM créditos EAS)
+
+  ## Pré-requisitos
+  - Node.js 20+     →  https://nodejs.org
+  - Conta GitHub    →  https://github.com
+  - GitHub Token    →  https://github.com/settings/tokens
+    (permissões necessárias: repo, workflow)
+
+  ## Passos
+
+    1. Criar um repositório no GitHub (público ou privado)
+
+    2. Entrar na pasta do projeto:
+       cd DevMobile-3-capacitor-gratis
+
+    3. Iniciar git e fazer push:
+       git init
+       git add .
+       git commit -m "DevMobile APK build"
+       git remote add origin https://github.com/SEU_USUARIO/SEU_REPO.git
+       git push -u origin main
+
+    4. O workflow dispara AUTOMATICAMENTE no push.
+       Ou vá em: GitHub → seu repo → aba Actions → "Build APK Android"
+       Clique em Run workflow → Run workflow
+
+    5. Aguardar ~15 minutos e baixar o APK:
+       GitHub → seu repo → aba Actions → clique no build → Artifacts → APK-Android-N
+
+    6. Transferir o .apk para o Android e instalar
+       (Configurações → Segurança → Fontes desconhecidas → ativar)
+
+  ## O que o workflow faz automaticamente
+    ✅ Instala Java 17 + Android SDK
+    ✅ Roda: npm install
+    ✅ Roda: npx expo export --platform web
+    ✅ Instala Capacitor 6 e adiciona plataforma Android
+    ✅ Gera keystore de assinatura
+    ✅ Compila APK com Gradle (assembleRelease)
+    ✅ Faz upload do APK como Artifact para download
+
+  ## Custo
+    ZERO — GitHub Actions oferece 2.000 minutos/mês grátis.
+    Um build consome ~15 minutos.
+  
